@@ -1,5 +1,5 @@
 # OPENSSL
-OPENSSL_VERSION := 1.0.1j
+OPENSSL_VERSION := 1.0.2
 OPENSSL_URL := https://www.openssl.org/source/openssl-$(OPENSSL_VERSION).tar.gz
 
 
@@ -18,7 +18,7 @@ endif
 ifdef HAVE_LINUX
 ifeq ($(MY_TARGET_ARCH),x86_64)
 OPENSSL_CONFIG_VARS="linux-x86_64"
-OPENSSL_ARCH=-m64 -no-ssl2
+OPENSSL_ARCH=-m64
 endif
 
 ifeq ($(MY_TARGET_ARCH),i386)
@@ -32,7 +32,7 @@ OPENSSL_COMPILER=os/compiler:arm-linux-gnueabi-
 endif
 
 ifdef HAVE_ANDROID
-OPENSSL_COMPILER=os/compiler:$(HOST)
+# OPENSSL_COMPILER=os/compiler:$(HOST)
 endif
 
 ifdef HAVE_IOS
